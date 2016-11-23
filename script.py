@@ -82,7 +82,7 @@ def vprint(message_level, *args, **kwargs):
     All vprint lines are logged as INFO events.
 
     """
-    if verbosity > 0 and message_level >= verbosity:
+    if message_level >= verbosity > 0:
         print(*args, **kwargs)
 
     # Log INFO event
