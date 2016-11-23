@@ -82,7 +82,7 @@ def vprint(message_level, *args, **kwargs):
     All vprint lines are logged as INFO events.
 
     """
-    if  verbosity > 0 and message_level >= verbosity:
+    if verbosity > 0 and message_level >= verbosity:
         print(*args, **kwargs)
 
     # Log INFO event
@@ -119,7 +119,7 @@ def parse_args():
 
     # Positional Arguments
 
-    # Parse the script arguments and make them available globally
+    # Parse the script arguments
     script_args = parser.parse_args()
 
     # Set defaults and overrides
