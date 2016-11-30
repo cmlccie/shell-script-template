@@ -82,7 +82,7 @@ def vprint(message_level, *args, **kwargs):
     All vprint lines are logged as INFO events.
 
     """
-    if  verbosity >= message_level > 0:
+    if verbosity >= message_level > 0:
         print(*args, **kwargs)
 
     # Log INFO event
@@ -142,12 +142,13 @@ def setup_console(log_level=logging.WARNING):
 
 def setup_logfile(file_path, debug=False):
     global log_handler
+    root_logger = logging.getLogger()
     log_level = logging.DEBUG if debug else logging.INFO
     log_handler = logging.FileHandler(file_path, mode='a', encoding='utf-8')
     log_handler.setLevel(log_level)
     log_handler.setFormatter(
         logging.Formatter('%(asctime)s %(levelname)-8s %(name)s %(message)s'))
-    logger.addHandler(log_handler)
+    root_logger.addHandler(log_handler)
 
 
 # Main Script
