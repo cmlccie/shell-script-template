@@ -77,12 +77,12 @@ def vprint(message_level, *args, **kwargs):
 
     message_level zero '0' indicates a 'quiet' mode; no messages will be
     printed to the console; however, the messages will be logged as INFO
-    events.
+    events.  These are essentially 'silently logged' messages.
 
     All vprint lines are logged as INFO events.
 
     """
-    if message_level >= verbosity > 0:
+    if  verbosity >= message_level > 0:
         print(*args, **kwargs)
 
     # Log INFO event
