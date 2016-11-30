@@ -47,6 +47,7 @@ __version__ = "v0.2"
 __status__ = "Beta"
 __dependencies__ = ['future']
 
+
 # Initialize logging
 logger = logging.getLogger(__name__)
 try:
@@ -107,12 +108,12 @@ def parse_args():
     parser = argparse.ArgumentParser(description=__doc__)
 
     # Optional Arguments
-    parser.add_argument("-v", "--verbosity", help="increase verbosity "
-                        "(default is -v)", action="count", default=1)
-    parser.add_argument("-q", "--quiet", help="quiet mode; "
-                        "overrides the -v option", action="store_true")
-    parser.add_argument("-l", "--log-file", help="logs logging messages to "
-                        "specified log file")
+    parser.add_argument("-v", "--verbosity", action="count", default=1,
+                        help="increase verbosity (default is -v)")
+    parser.add_argument("-q", "--quiet", action="store_true",
+                        help="quiet mode; overrides the -v option")
+    parser.add_argument("-l", "--log-file",
+                        help="logs logging messages to specified log file")
     parser.add_argument("--debug", action="store_true",
                         help="enables debugging and logs messages to the "
                              "specified log file (requires -l)")
